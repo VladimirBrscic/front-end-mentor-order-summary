@@ -1,143 +1,182 @@
 :root{
-  --pale-blue: hsl(225, 100%, 94%);
-  --bright-blue: hsl(245, 75%, 52%);
-  --very-pale-blue: hsl(225, 100%, 98%);
-  --desaturated-blue: hsl(224, 23%, 55%);
-  --dark-blue: hsl(223, 47%, 23%);
-  --small-font: 0.9rem;
-  --margin-b: 2.2rem 0;
-  --margin-s: 1.2rem 0;
-}
-*{
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-body{
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Red Hat Display', sans-serif;
-  font-size: 1rem;
-  background-image: url('../images/pattern-background-mobile.svg');
-  background-size: 100%;
-  background-color: hsl(225, 100%, 94%);
-  background-repeat: no-repeat;
-}
-img{
-  max-width: 100%;
-}
-main{
-  border-radius: 1.2rem;
-  background-color: #fff;
-  overflow: hidden;
-  width: 89%;
-  max-width: 24rem;
-}
-.order{
-  text-align: center;
-  padding: 0.5rem 1rem;
+--primary-color-200: hsl(225, 100%, 94%);
+--primary-color-400: hsl(245, 75%, 52%);
+
+--neutral-color-200: hsl(225, 100%, 98%);
+--neutral-color-400: hsl(224, 23%, 55%);
+--neutral-color-800: hsl(223, 47%, 23%);
+
+--fw-regular: 500;
+--fw-semi-bold: 700;
+--fw-bold: 900;
+
+--small-f-size: 0.9rem;
+
+
+--ff-base: 'Red Hat Display', serif;
 }
 
-.heading{
-  font-size: 1.4rem;
-  font-weight: 900;
-  color: var(--dark-blue);
-  padding: var(--margin-s);
-}
-.text{
-  font-weight: bold;
-  line-height: 1.6;
-  color: var(--dark-blue);
-  opacity: 0.5;
-  text-align: center;
-  padding: 0 0.5rem;
-}
-.plan{
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: var(--margin-b);
-}
-.plan > div{
-  display: flex;
-  align-items: center;
-}
-.annual-plan{
-  margin-left: 1rem;
-}
 
-.annual-plan h2{
-  font-size: var(--small-font);
-  font-weight: 900;
-  color: var(--dark-blue)
-}
-.annual-plan p{
-  color: var(--dark-blue);
-  opacity: 0.5;
-  font-weight: bold;
-  font-size: var(--small-font);
-}
-.change{
-  color: hsl(228, 63%, 42%, 1);
-  font-size: 0.8rem;
-  font-weight: 900;
-  background: none;
-  border: none;
-  text-decoration: underline;
-  cursor: pointer;
-}
-.change:hover{
-  color: hsl(240, 59%, 62%);
-}
-.pay{
-  text-decoration: none;
-  background: var(--bright-blue);
-  color: #fff;
-  border-radius: 0.7rem;
-  font-weight: 700;
-  font-size: var(--small-font);
-  letter-spacing: 0.09rem;
-  cursor: pointer;
-  padding: 1rem 3.2rem;
-  text-align: center;
-  display: block;
-}
-.pay:hover{
-  background: hsl(240, 59%, 62%);
-}
 
-.cancel {
-  text-decoration: none;
-  color: var(--dark-blue);
-  opacity: 0.5;
-  font-weight: bold;
-  display: inline-block;
-  margin: var(--margin-s);
-
-}
-.cancel:hover{
-  color: #000;
-  opacity: 1;
-}
-footer{
-  font-size: 0.7rem;
-  position: relative;
-  top: 1.5rem;
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  /*
+    2. Remove default margin
+  */
+  * {
+    margin: 0;
+  }
+  /*
+    3. Allow percentage-based heights in the application
+  */
+  html, body {
+    height: 100%;
+  }
+  /*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  /*
+    6. Improve media defaults
+  */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  /*
+    7. Remove built-in form typography styles
+  */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  /*
+    8. Avoid text overflows
+  */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  /*
+    9. Create a root stacking context
+  */
+  #root, #__next {
+    isolation: isolate;
   }
 
-.attribution a {
-   color: hsl(228, 45%, 44%);
+  /* General Styling */
+
+
+body{
+    font-family: var(--ff-base);
+    color: var(--neutral-color-400);
+    font-size: 1rem;
+    background-image: url(../images/pattern-background-mobile.svg);
+    background-size: 209vh;
+    display: grid;
+    place-content: center;
+    margin: 1rem;
+}
+@media (min-width: 480px) {
+    body{
+      background-image: url(../images/pattern-background-desktop.svg);
+      background-repeat: no-repeat;
+      background-color: var(--primary-color-200);
+      background-size: 135%;
+      background-position-y: -16rem;
+      background-position-x: -2rem;
+  }
+}
+
+a{
+  text-decoration: none;
+}
+
+/* Utilities */
+.flex-group{
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* Button */
+.btn{
+    background-color: var(--primary-color-400);
+    color: hsl(225, 100%, 100%);
+    border-radius: 0.5rem;
+    border: none;
+    padding: 1rem 1.5rem;
+ }
+ .btn:hover{
+   background-color: #766CF1
+   ;
  }
 
-@media screen and (min-width: 800px) {
-    body{
-      background-image: url('../images/pattern-background-desktop.svg');
-      background-size: 100%;
-      background-color: hsl(225, 100%, 94%);
-      background-repeat: no-repeat;
-    }
+/* Summary Styles */
 
-  }
+
+.summary{
+--content-padding: 0.5rem;
+--content-med-padding: 1.5rem;
+--content-spacing: 1.5rem;
+
+  background-color: hsl(225, 100%, 100%);
+  border-radius: 1rem;
+  overflow: hidden;
+  max-width: 449px;
+}
+
+
+.summary__content{
+  text-align: center;
+  padding:var(--content-med-padding);
+  display: grid;
+  grid-gap: var(--content-spacing);
+}
+.summary__title{
+  color: var(--neutral-color-800);
+  font-weight: var(--fw-bold);
+}
+.summary__annual-plan{
+  background-color: var(--neutral-color-200);
+  border-radius: 0.5rem;
+  padding: var(--content-padding);
+}
+.summary__icon{
+  width: 48px;
+  height: 48px;
+}
+.summary__annual-plan-title{
+  color: var(--neutral-color-800);
+  font-size: var(--small-f-size);
+  font-weight: var(--fw-bold);
+}
+.summary__annual-price{
+  font-weight:var(--fw-semi-bold);
+  font-size: var(--small-f-size);
+}
+.summary__change{
+  color: var(--primary-color-400);
+  text-decoration: underline;
+  font-weight: var(--fw-bold);
+  flex-grow: 2;
+  margin-left: 2rem;
+  font-size: var(--small-f-size);
+}
+.summary__cancel{
+  color: var(--neutral-color-400);
+  font-weight:var(--fw-bold);
+}
+footer{
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
